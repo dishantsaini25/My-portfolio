@@ -75,12 +75,12 @@ const projects = [
     color: '#38bdf8',
   },
   {
-    title: 'Blog Platform',
-    description: 'Full-stack blog platform with rich text editor, user authentication, comment system, categories, tags, and an admin panel for content management.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Express', 'JWT'],
-    github: 'https://github.com/dishantsaini25',
-    live: '#',
-    screenshot: null,
+    title: 'Frontend Portfolio Website',
+    description: 'A modern portfolio website built with HTML, CSS, and JavaScript to showcase my skills and projects.',
+    tags: ['HTML5', 'CSS3', 'JavaScript'],
+    github: 'https://github.com/dishantsaini25/portfolio.git',
+    live: 'https://portfolio-azure-omega-2ar4ho0bcf.vercel.app/',
+    screenshot: '/Images/portfolio.png',
     color: '#a855f7',
   },
   {
