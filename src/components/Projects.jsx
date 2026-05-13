@@ -3,21 +3,21 @@ import './Projects.css';
 
 const projects = [
   {
-    title: 'My Portfolio Website',
-    description: 'Professional MERN developer portfolio with animated hero, skills, projects slider, certificates, testimonials, and working contact form with Nodemailer + Resend.',
-    tags: ['React', 'Vite', 'Node.js', 'Express', 'Nodemailer', 'CSS3'],
-    github: 'https://github.com/dishantsaini25/My-portfolio',
-    live: 'https://my-portfolio-rose-tau-76.vercel.app',
-    screenshot: '/Images/scsu.png',
+    title: 'Swoo Tech Mart',
+    description: 'Swoo Tech Mart is a full-stack e-commerce platform built with Next.js 16, Node.js, and MongoDB. It features product browsing, advanced filtering, Razorpay payment integration, user authentication with OTP, shopping cart, order tracking, and a comprehensive admin panel. The platform is fully responsive and deployed on Vercel and Render.',
+    tags: ['Next.js 16 (App Router)', 'React 19', 'Redux Toolkit', 'Tailwind CSS', 'Axios', 'Socket.io-client', 'Razorpay API', 'JWT Authentication', 'MongoDB', 'Node.js', 'Express'],
+    github: 'https://github.com/dishantsaini25/Ishop-Frontend.git',
+    live: 'https://swoo-ishop.vercel.app/',
+    screenshot: '/Images/swoo.png',
     color: '#8b5cf6',
   },
   {
-    title: 'Ethereum Blockchain App',
-    description: 'A blockchain-based web application built on Ethereum. Includes smart contract interaction, wallet connection, and transaction management on the blockchain.',
-    tags: ['React', 'Solidity', 'Ethereum', 'Web3.js', 'MetaMask'],
-    github: 'https://github.com/dishantsaini25',
-    live: '#',
-    screenshot: '/Images/eth.png',
+    title: 'BusyGrowth : Digital Marketing Agency',
+    description: 'BusyGrowth Studio is a high-performance agency website built for a Jaipur-based digital marketing studio. It serves as both a service showcase and an ed-tech platform, featuring 4 mentorship courses, 5 service categories, and a fully functional contact form with automated email replies.',
+    tags: ['Next.js 14 (App Router)', 'Tailwind CSS v4', 'Framer Motion', 'Nodemailer/Resend', 'Vercel'],
+    github: 'https://github.com/dishantsaini25/busyGrowth.git',
+    live: 'https://busygrowth.in/',
+    screenshot: '/Images/busy.png',
     color: '#6366f1',
   },
   {
