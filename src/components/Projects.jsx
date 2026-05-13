@@ -82,16 +82,7 @@ const projects = [
     live: 'https://portfolio-azure-omega-2ar4ho0bcf.vercel.app/',
     screenshot: '/Images/portfolio.png',
     color: '#a855f7',
-  },
-  {
-    title: 'Student Result Management',
-    description: 'Web app for managing student results with admin panel, grade calculation, report generation, and student/teacher login system.',
-    tags: ['React', 'Node.js', 'MySQL', 'Express', 'JWT'],
-    github: 'https://github.com/dishantsaini25',
-    live: '#',
-    screenshot: null,
-    color: '#14b8a6',
-  },
+  }
 ];
 
 const CARDS_PER_PAGE = 3;
