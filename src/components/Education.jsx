@@ -3,32 +3,32 @@ import './Education.css';
 
 const educationData = [
   {
-    degree: 'Bachelor of Computer Applications (BCA)',
-    institution: 'Your University Name',
-    duration: '2022 – 2025',
+    degree: 'Bachelor of Arts (BA)',
+    institution: 'University of Rajasthan, Jaipur',
+    duration: 'Completed 2022',
     grade: 'CGPA: 7.8/10',
-    description: 'Studying core computer science subjects including Data Structures, Algorithms, Database Management, Web Development, and Software Engineering.',
-    highlights: ['Web Development', 'Data Structures', 'DBMS', 'Software Engineering'],
+    description: 'Completed Bachelor of Arts from Rajasthan University. Alongside academics, self-learned web development and built strong foundations in programming, problem-solving, and modern web technologies.',
+    highlights: ['Self-Learning', 'Web Development', 'Problem Solving', 'JavaScript'],
     icon: '🎓',
-    current: true,
+    current: false,
   },
   {
-    degree: 'Higher Secondary (12th) – Science',
-    institution: 'Your School Name',
-    duration: '2020 – 2022',
-    grade: 'Percentage: 75%',
-    description: 'Completed higher secondary education with Physics, Chemistry, Mathematics and Computer Science as core subjects.',
-    highlights: ['Mathematics', 'Physics', 'Computer Science'],
+    degree: 'Higher Secondary (12th) – Arts',
+    institution: 'Kendriya Vidyalaya No. 4, Jaipur',
+    duration: '2019',
+    grade: 'Percentage: 76%',
+    description: 'Completed higher secondary education with Arts stream from Kendriya Vidyalaya No. 4, Jaipur.',
+    highlights: ['Arts Stream', 'English', 'Hindi', 'Social Science'],
     icon: '📚',
     current: false,
   },
   {
     degree: 'Secondary (10th)',
-    institution: 'Your School Name',
-    duration: '2019 – 2020',
-    grade: 'Percentage: 80%',
-    description: 'Completed secondary education with strong foundation in Mathematics and Science.',
-    highlights: ['Mathematics', 'Science', 'English'],
+    institution: 'Kendriya Vidyalaya No. 4, Jaipur',
+    duration: '2017',
+    grade: 'Percentage: 70%',
+    description: 'Completed secondary education from Kendriya Vidyalaya No. 4, Jaipur with a strong academic foundation.',
+    highlights: ['Mathematics', 'Science', 'English', 'Hindi'],
     icon: '🏫',
     current: false,
   },
@@ -41,7 +41,7 @@ const Education = () => {
         <div className="section-header">
           <span className="section-tag">Education</span>
           <h2 className="section-title">My <span>Academic</span> Journey</h2>
-          <p className="section-subtitle">Building a strong foundation through formal education and continuous learning</p>
+          <p className="section-subtitle">Academic background combined with 9+ months of dedicated self-learning in web development</p>
         </div>
 
         <div className="education-timeline">
@@ -74,9 +74,7 @@ const Education = () => {
                     <span className="edu-grade">{edu.grade}</span>
                   </div>
                 </div>
-
                 <p className="edu-description">{edu.description}</p>
-
                 <div className="edu-highlights">
                   {edu.highlights.map((h, j) => (
                     <span className="edu-tag" key={j}>{h}</span>

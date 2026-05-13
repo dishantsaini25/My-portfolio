@@ -1,4 +1,5 @@
 import React from 'react';
+import profileImg from '../assets/profile.jpg';
 import './About.css';
 
 const highlights = [
@@ -23,11 +24,11 @@ const About = () => {
             <div className="about-image-wrapper">
               <div className="about-image-bg"></div>
               <div className="about-avatar">
-                <span>DS</span>
+                <img src={profileImg} alt="Dishant Saini" className="about-profile-img" />
               </div>
               <div className="about-exp-badge">
-                <span className="exp-num">1+</span>
-                <span className="exp-text">Year of<br/>Experience</span>
+                <span className="exp-num">9+</span>
+                <span className="exp-text">Months of<br/>Practice</span>
               </div>
             </div>
           </div>
@@ -37,14 +38,14 @@ const About = () => {
             <p className="about-role">MERN Full Stack Developer</p>
 
             <p className="about-bio">
-              Hey! I'm Dishant, a passionate MERN Stack Developer from India. I started my journey
-              as a frontend developer and have grown into a full-stack developer who loves building
-              end-to-end web applications.
+              Hey! I'm Dishant, a self-taught MERN Stack Developer from Jaipur, India. I completed
+              my BA from Rajasthan University and discovered my passion for web development through
+              self-learning — putting in 9+ months of dedicated practice to master the MERN stack.
             </p>
             <p className="about-bio">
-              I participated in my first hackathon which sparked my love for rapid development and
-              problem-solving. Now I'm focused on mastering the MERN stack and building production-ready
-              applications. My goal is to work at top tech companies like Google and Oracle.
+              I participated in a hackathon which sharpened my rapid development and problem-solving
+              skills. I'm now focused on building production-ready full-stack applications and
+              aiming to land a role at top tech companies like Google and Oracle.
             </p>
 
             <div className="about-info-grid">

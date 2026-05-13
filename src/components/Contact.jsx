@@ -26,8 +26,8 @@ const contactInfo = [
       </svg>
     ),
     label: 'LinkedIn',
-    value: 'linkedin.com/in/dishant-saini',
-    link: 'https://linkedin.com/in/dishant-saini',
+    value: 'linkedin.com/in/dishantsaini-web-developer',
+    link: 'https://www.linkedin.com/in/dishantsaini-web-developer',
   },
   {
     icon: (
@@ -36,8 +36,8 @@ const contactInfo = [
       </svg>
     ),
     label: 'GitHub',
-    value: 'github.com/dishant-saini',
-    link: 'https://github.com/dishant-saini',
+    value: 'github.com/dishantsaini25',
+    link: 'https://github.com/dishantsaini25',
   },
   {
     icon: (
@@ -53,7 +53,7 @@ const contactInfo = [
 ];
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', mobile: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -77,7 +77,7 @@ const Contact = () => {
 
       if (res.ok && data.success) {
         setStatus('sent');
-        setForm({ name: '', email: '', subject: '', message: '' });
+        setForm({ name: '', email: '', mobile: '', subject: '', message: '' });
         setTimeout(() => setStatus('idle'), 5000);
       } else {
         setErrorMsg(data.message || 'Something went wrong. Please try again.');
@@ -163,17 +163,30 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={form.subject}
-                  onChange={handleChange}
-                  placeholder="Project Collaboration"
-                  required
-                />
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="mobile">Mobile Number</label>
+                  <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    value={form.mobile}
+                    onChange={handleChange}
+                    placeholder="+91 98765 43210"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="subject">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
+                    placeholder="Project Collaboration"
+                    required
+                  />
+                </div>
               </div>
 
               <div className="form-group">
