@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Testimonials.css';
 
 const testimonials = [
@@ -60,11 +60,29 @@ const testimonials = [
   },
 ];
 
+const AUTO_INTERVAL = 4500;
+
 const Testimonials = () => {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const timerRef = useRef(null);
 
-  const prev = () => setActive((a) => (a - 1 + testimonials.length) % testimonials.length);
-  const next = () => setActive((a) => (a + 1) % testimonials.length);
+  useEffect(() => {
+    if (paused) return;
+    timerRef.current = setInterval(() => {
+      setActive((a) => (a + 1) % testimonials.length);
+    }, AUTO_INTERVAL);
+    return () => clearInterval(timerRef.current);
+  }, [paused]);
+
+  const goTo = (i) => {
+    clearInterval(timerRef.current);
+    setActive(i);
+    setPaused(false);
+  };
+
+  const prev = () => goTo((active - 1 + testimonials.length) % testimonials.length);
+  const next = () => goTo((active + 1) % testimonials.length);
 
   const visible = [
     testimonials[(active - 1 + testimonials.length) % testimonials.length],
@@ -82,7 +100,11 @@ const Testimonials = () => {
         </div>
 
         {/* Desktop: 3-card slider */}
-        <div className="testimonials-slider">
+        <div
+          className="testimonials-slider"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
           {visible.map((t, i) => (
             <div
               className={`testimonial-card card${i === 1 ? ' center' : ' side'}`}
@@ -108,6 +130,11 @@ const Testimonials = () => {
         </div>
 
         {/* Controls */}
+        <div className="testimonials-progress">
+          <div className={`testimonials-progress-bar${paused ? ' paused' : ''}`}></div>
+        </div>
+
+        {/* Controls */}
         <div className="slider-controls">
           <button className="slider-btn" onClick={prev} aria-label="Previous">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
@@ -120,7 +147,7 @@ const Testimonials = () => {
               <button
                 key={i}
                 className={`dot${i === active ? ' active' : ''}`}
-                onClick={() => setActive(i)}
+                onClick={() => goTo(i)}
                 aria-label={`Go to testimonial ${i + 1}`}
               />
             ))}

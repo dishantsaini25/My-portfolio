@@ -147,6 +147,30 @@
   font-weight: 600;
 }
 
+/* Auto-play progress bar */
+.projects-slider {
+  position: relative;
+}
+
+.projects-slider::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #06b6d4);
+  margin-top: 1rem;
+  border-radius: 2px;
+  animation: progress-bar 3.5s linear infinite;
+}
+
+.projects-slider:hover::after {
+  animation-play-state: paused;
+}
+
+@keyframes progress-bar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
 /* Slider Controls */
 .slider-controls {
   display: flex;

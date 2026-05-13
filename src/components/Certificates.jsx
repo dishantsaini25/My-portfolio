@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Certificates.css';
 
 const certificates = [
@@ -58,11 +58,29 @@ const certificates = [
   },
 ];
 
+const AUTO_INTERVAL = 4000;
+
 const Certificates = () => {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const timerRef = useRef(null);
 
-  const prev = () => setActive((a) => (a - 1 + certificates.length) % certificates.length);
-  const next = () => setActive((a) => (a + 1) % certificates.length);
+  useEffect(() => {
+    if (paused) return;
+    timerRef.current = setInterval(() => {
+      setActive((a) => (a + 1) % certificates.length);
+    }, AUTO_INTERVAL);
+    return () => clearInterval(timerRef.current);
+  }, [paused]);
+
+  const goTo = (i) => {
+    clearInterval(timerRef.current);
+    setActive(i);
+    setPaused(false);
+  };
+
+  const prev = () => goTo((active - 1 + certificates.length) % certificates.length);
+  const next = () => goTo((active + 1) % certificates.length);
 
   const cert = certificates[active];
 
@@ -75,7 +93,11 @@ const Certificates = () => {
           <p className="section-subtitle">6 certifications validating my skills and dedication to continuous learning</p>
         </div>
 
-        <div className="cert-slider">
+        <div
+          className="cert-slider"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
           {/* Main Card */}
           <div className="cert-main-card card" key={active}>
             <div className="cert-image-side">
@@ -127,7 +149,7 @@ const Certificates = () => {
                 <button
                   key={i}
                   className={`dot${i === active ? ' active' : ''}`}
-                  onClick={() => setActive(i)}
+                  onClick={() => goTo(i)}
                   aria-label={`Certificate ${i + 1}`}
                 />
               ))}
@@ -146,7 +168,7 @@ const Certificates = () => {
               <button
                 key={i}
                 className={`cert-thumb${i === active ? ' active' : ''}`}
-                onClick={() => setActive(i)}
+                onClick={() => goTo(i)}
                 style={{ borderColor: i === active ? c.color : 'transparent' }}
               >
                 {c.image ? (

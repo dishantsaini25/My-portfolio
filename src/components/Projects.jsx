@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Projects.css';
 
 const projects = [
@@ -86,14 +86,32 @@ const projects = [
 ];
 
 const CARDS_PER_PAGE = 3;
+const AUTO_INTERVAL = 3500; // ms
 
 const Projects = () => {
   const [page, setPage] = useState(0);
+  const [paused, setPaused] = useState(false);
   const totalPages = Math.ceil(projects.length / CARDS_PER_PAGE);
   const visible = projects.slice(page * CARDS_PER_PAGE, page * CARDS_PER_PAGE + CARDS_PER_PAGE);
+  const timerRef = useRef(null);
 
-  const prev = () => setPage((p) => Math.max(0, p - 1));
-  const next = () => setPage((p) => Math.min(totalPages - 1, p + 1));
+  // Auto-advance
+  useEffect(() => {
+    if (paused) return;
+    timerRef.current = setInterval(() => {
+      setPage((p) => (p + 1) % totalPages);
+    }, AUTO_INTERVAL);
+    return () => clearInterval(timerRef.current);
+  }, [paused, totalPages]);
+
+  // Manual nav — reset timer
+  const goTo = (p) => {
+    clearInterval(timerRef.current);
+    setPage(p);
+    setPaused(false);
+  };
+  const prev = () => goTo((page - 1 + totalPages) % totalPages);
+  const next = () => goTo((page + 1) % totalPages);
 
   return (
     <section id="projects" className="projects-section">
@@ -105,7 +123,11 @@ const Projects = () => {
         </div>
 
         {/* Slider */}
-        <div className="projects-slider">
+        <div
+          className="projects-slider"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
           <div className="projects-grid">
             {visible.map((project, i) => (
               <div className="project-card card" key={`${page}-${i}`}>
@@ -171,7 +193,7 @@ const Projects = () => {
 
         {/* Pagination Controls */}
         <div className="slider-controls">
-          <button className="slider-btn" onClick={prev} disabled={page === 0} aria-label="Previous">
+          <button className="slider-btn" onClick={prev} aria-label="Previous">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
               <path d="M15 18l-6-6 6-6"/>
             </svg>
@@ -182,13 +204,13 @@ const Projects = () => {
               <button
                 key={i}
                 className={`dot${i === page ? ' active' : ''}`}
-                onClick={() => setPage(i)}
+                onClick={() => goTo(i)}
                 aria-label={`Page ${i + 1}`}
               />
             ))}
           </div>
 
-          <button className="slider-btn" onClick={next} disabled={page === totalPages - 1} aria-label="Next">
+          <button className="slider-btn" onClick={next} aria-label="Next">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
               <path d="M9 18l6-6-6-6"/>
             </svg>

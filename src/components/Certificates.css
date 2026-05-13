@@ -8,6 +8,27 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: relative;
+}
+
+/* Auto-play progress bar */
+.cert-slider::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #06b6d4);
+  border-radius: 2px;
+  animation: cert-progress 4s linear infinite;
+  order: 99;
+}
+
+.cert-slider:hover::after {
+  animation-play-state: paused;
+}
+
+@keyframes cert-progress {
+  from { width: 0%; }
+  to { width: 100%; }
 }
 
 /* Main Card */
