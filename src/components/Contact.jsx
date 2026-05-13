@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './Contact.css';
 
-// In production, use the deployed Render backend URL.
-// In development, Vite proxy handles /api → localhost:5000
-const API_BASE = import.meta.env.VITE_API_URL || '';
+// Dev: Vite proxy handles /api → localhost:5000
+// Production: direct Render backend URL
+const API_BASE = import.meta.env.DEV
+  ? ''
+  : 'https://my-portfolio-x5sq.onrender.com';
 
 const contactInfo = [
   {
