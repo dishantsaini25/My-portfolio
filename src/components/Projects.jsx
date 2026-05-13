@@ -57,12 +57,12 @@ const projects = [
     color: '#ec4899',
   },
   {
-    title: 'REST API — Node.js',
-    description: 'Robust RESTful API with JWT authentication, role-based authorization, rate limiting, and full CRUD operations. Well-documented with Postman.',
-    tags: ['Node.js', 'Express', 'MongoDB', 'JWT', 'Mongoose'],
-    github: 'https://github.com/dishantsaini25',
-    live: '#',
-    screenshot: null,
+    title: 'Beauty Salon Website',
+    description: 'A modern beauty salon website built with clean HTML and CSS, featuring a hero section, services, about, and contact layout for practice and portfolio use',
+    tags: ['HTML5', 'CSS3'],
+    github: 'https://github.com/dishantsaini25/Beauty_and_Salon_Web.git',
+    live: 'https://beauty-and-salon-web.vercel.app/',
+    screenshot: '/Images/beauty-salon.png',
     color: '#f97316',
   },
   {
