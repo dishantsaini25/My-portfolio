@@ -1,16 +1,93 @@
-# React + Vite
+# Dishant Saini — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional MERN Full Stack Developer portfolio with a working contact form powered by Nodemailer (Gmail) + Resend fallback.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend:** React + Vite
+- **Backend:** Node.js + Express
+- **Email:** Nodemailer (Gmail) with Resend as fallback
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📁 Project Structure
 
-## Expanding the ESLint configuration
+```
+my-portfolio/
+├── src/                  # React frontend
+├── server/               # Express backend
+│   ├── routes/
+│   ├── services/
+│   ├── index.js
+│   └── .env.example      # Copy to .env and fill values
+├── render.yaml           # Render deployment config
+└── vite.config.js
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Local Development
+
+### 1. Backend
+```bash
+cd server
+cp .env.example .env     # Fill in your credentials
+npm install
+node index.js            # Runs on http://localhost:5000
+```
+
+### 2. Frontend
+```bash
+# In root folder
+npm install
+npm run dev              # Runs on http://localhost:5173
+```
+
+Vite automatically proxies `/api` → `http://localhost:5000` in dev.
+
+---
+
+## ☁️ Deployment
+
+### Backend → Render (Free)
+
+1. Go to [render.com](https://render.com) → New → Web Service
+2. Connect your GitHub repo: `dishantsaini25/My-portfolio`
+3. Settings:
+   - **Root Directory:** `server`
+   - **Build Command:** `npm install`
+   - **Start Command:** `node index.js`
+4. Add Environment Variables:
+   | Key | Value |
+   |-----|-------|
+   | `GMAIL_USER` | `sainidishu2002@gmail.com` |
+   | `GMAIL_APP_PASSWORD` | your 16-char app password |
+   | `RESEND_API_KEY` | your Resend API key |
+   | `CLIENT_URL` | your Vercel frontend URL |
+5. Deploy → Copy the URL (e.g. `https://portfolio-backend-xxxx.onrender.com`)
+
+### Frontend → Vercel
+
+1. Go to [vercel.com](https://vercel.com) → New Project
+2. Import `dishantsaini25/My-portfolio`
+3. Add Environment Variable:
+   | Key | Value |
+   |-----|-------|
+   | `VITE_API_URL` | your Render backend URL from above |
+4. Deploy ✅
+
+---
+
+## 📧 Contact Form Flow
+
+```
+User submits form
+      ↓
+Frontend → POST /api/contact (Render backend)
+      ↓
+Try Nodemailer (Gmail)
+      ↓ (if fails)
+Fallback to Resend API
+      ↓
+You get email + User gets auto-reply
+```
