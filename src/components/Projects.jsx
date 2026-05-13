@@ -48,12 +48,12 @@ const projects = [
     color: '#22c55e',
   },
   {
-    title: 'Task Management App',
-    description: 'Trello-inspired task manager with drag-and-drop boards, team collaboration features, and real-time updates using Socket.io.',
-    tags: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'DnD'],
-    github: 'https://github.com/dishantsaini25',
-    live: '#',
-    screenshot: null,
+    title: 'Functional Calculator App',
+    description: '"A complete utility toolkit built with HTML, CSS, and JavaScript — featuring a Functional Calculator, Simple Interest Calculator, BMI Calculator, and Calories Calculator. Each tool delivers instant, accurate results with a clean and user-friendly interface. Perfect for daily calculations ranging from basic arithmetic to health and finance tracking."',
+    tags: ['HTML5', 'CSS3', 'JavaScript'],
+    github: 'https://github.com/dishantsaini25/functional-calculator-app.git',
+    live: 'https://functional-calculator-app.vercel.app/',
+    screenshot: '/Images/calculator.png',
     color: '#ec4899',
   },
   {
