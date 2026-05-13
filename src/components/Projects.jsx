@@ -66,12 +66,12 @@ const projects = [
     color: '#f97316',
   },
   {
-    title: 'Weather Dashboard',
-    description: 'Real-time weather app using OpenWeatherMap API. Shows 5-day forecast, location search, temperature units toggle, and beautiful animated UI.',
-    tags: ['React', 'API Integration', 'CSS3', 'JavaScript'],
-    github: 'https://github.com/dishantsaini25',
-    live: '#',
-    screenshot: null,
+    title: 'Gad_Kumaun : Hotel Booking Website',
+    description: 'GAD KAMUN is a beautifully crafted hotel website developed during a hackathon. It presents a complete digital presence for a luxury hotel brand, featuring multiple pages that highlight the property ambiance, room offerings, services, and visual gallery – all wrapped in a cohesive, elegant design.',
+    tags: ['HTML5', 'CSS3'],
+    github: 'https://github.com/dishantsaini25/Gad_Kumaun.git',
+    live: 'https://gad-kumaun.vercel.app/',
+    screenshot: '/Images/gad-kumaun.png',
     color: '#38bdf8',
   },
   {
