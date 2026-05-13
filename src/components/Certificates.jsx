@@ -6,7 +6,7 @@ const certificates = [
     title: 'Cascading Creativity: Web Design & Development',
     issuer: 'WsCube Tech',
     date: '9th Dec 2025',
-    image: '/Images/certi.jpeg',
+    image: '/Images/certi1.jpeg',
     skills: ['HTML5', 'CSS3'],
     color: '#f7df1e',
     link: '#',
