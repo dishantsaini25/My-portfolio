@@ -21,12 +21,12 @@ const projects = [
     color: '#6366f1',
   },
   {
-    title: 'IT Company Website',
-    description: 'A modern, fully responsive IT company website with services showcase, team section, portfolio gallery, and contact form. Clean professional design.',
-    tags: ['React', 'CSS3', 'JavaScript', 'Responsive'],
-    github: 'https://github.com/dishantsaini25',
-    live: '#',
-    screenshot: '/Images/it.png',
+    title: 'Mini Web App : Weather Search App, Movie Search App and Translator',
+    description: '"A collection of three mini web apps — Movie Search, Weather Search, and Translator — built with HTML, CSS, and JavaScript using external APIs. The Movie Search app fetches movie details from an online database, the Weather Search app provides real-time weather updates for any city, and the Translator app converts text between multiple languages. All three apps feature a clean, responsive interface for a smooth user experience."',
+  tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive'],
+    github: 'https://github.com/dishantsaini25/Api-Project.git',
+    live: 'https://api-project-ruddy-nine.vercel.app/movie.html',
+    screenshot: '/Images/mini.png',
     color: '#06b6d4',
   },
   {
