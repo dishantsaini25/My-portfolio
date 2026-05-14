@@ -30,7 +30,6 @@ const skillCategories = [
     skills: [
       { name: 'MongoDB', level: 80, color: '#47a248' },
       { name: 'Mongoose', level: 78, color: '#880000' },
-      { name: 'MySQL', level: 65, color: '#4479a1' },
       { name: 'Firebase', level: 60, color: '#ffca28' },
     ],
   },
@@ -57,7 +56,6 @@ const techStack = [
   { name: 'CSS3', icon: '🔷', color: '#264de4' },
   { name: 'Git', icon: '🔀', color: '#f05032' },
   { name: 'Tailwind', icon: '💨', color: '#38bdf8' },
-  { name: 'MySQL', icon: '🐬', color: '#4479a1' },
   { name: 'Postman', icon: '📮', color: '#ff6c37' },
   { name: 'GitHub', icon: '🐙', color: '#ffffff' },
 ];

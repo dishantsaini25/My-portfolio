@@ -172,7 +172,7 @@ const Contact = () => {
                     name="mobile"
                     value={form.mobile}
                     onChange={handleChange}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 1234556789"
                   />
                 </div>
                 <div className="form-group">
